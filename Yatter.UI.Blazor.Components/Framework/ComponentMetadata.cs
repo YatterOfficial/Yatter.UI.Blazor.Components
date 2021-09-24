@@ -5,80 +5,71 @@ using Component = Yatter.UI.Blazor.Components.ListItems;
 
 namespace Yatter.UI.Blazor.Components.Framework
 {
-    public static class ComponentMetadataInfo
+    public class ComponentMetadataInfo
     {
 
-        public static Dictionary<string, Data.ComponentMetadata> ComponentMetadataDictionary => _componentMetadata;
+        public List<Data.ComponentMetadata> GetLibraryComponentsMetadata()
+        {
+            var list = new List<Data.ComponentMetadata>();
 
-        private static readonly Dictionary<string, Data.ComponentMetadata> _componentMetadata =
-            new()
-            {
+            list.Add(
+                new Data.ComponentMetadata
                 {
-                    "H1",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "H1",
-                        Type = typeof(Component.H1)
-                    }
-                },
-                {
-                    "H2",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "H2",
-                        Type = typeof(Component.H2)
-                    }
-                },
-                {
-                    "H3",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "H3",
-                        Type = typeof(Component.H3)
-                    }
-                },
-                {
-                    "H4",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "H4",
-                        Type = typeof(Component.H4)
-                    }
-                },
-                {
-                    "H5",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "H5",
-                        Type = typeof(Component.H5)
-                    }
-                },
-                {
-                    "Label",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "Label",
-                        Type = typeof(Component.Label)
-                    }
-                },
-                {
-                    "Base64Image",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "Base64Image",
-                        Type = typeof(Component.Base64Image)
-                    }
-                },
-                {
-                    "Entry",
-                    new Data.ComponentMetadata
-                    {
-                        Name = "Entry",
-                        Type = typeof(Component.Entry)
-                    }
-                }
-            };
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.H1).ToString(),    // The Parameters DTO namespace string
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.H1)          // The Custom Component Type (.razor)
+                });
 
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.H2).ToString(),    
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.H2)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.H3).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.H3)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.H4).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.H4)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.H5).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.H5)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.Label).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.Label)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.Entry).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.Entry)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.Base64Image).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.Base64Image)
+                });
+
+            return list;
+        }
     }
 }
 

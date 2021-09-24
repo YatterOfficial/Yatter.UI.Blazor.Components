@@ -41,9 +41,9 @@
             {
                 foreach (var item in ItemsSource)
                 {
-                    ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Parameters = new() { { "Item", item } };
-                    <DynamicComponent Type="@ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Type" Parameters="@ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Parameters" />
-                    ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Parameters = new() { { "Item", null } };
+                    ComponentMetadata[((ListBuilder.IDataType)item).DataType].Parameters = new() { { "Item", item } };
+                    <DynamicComponent Type="@ComponentMetadata[((ListBuilder.IDataType)item).DataType].Type" Parameters="@ComponentMetadata[((ListBuilder.IDataType)item).DataType].Parameters" />
+                    ComponentMetadata[((ListBuilder.IDataType)item).DataType].Parameters = new() { { "Item", null } };
                 }
 
             }
