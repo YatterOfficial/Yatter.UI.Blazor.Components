@@ -14,8 +14,8 @@ To date, this Blazor renderer allows lightweight lists to be generated on the fo
 - MacOS, using .Net Maui Blazor
 - Windows, using .Net Maui Blazor
 
-The ListBuilder that this Blazor renderer has been created upon is at [HarryHotdog.UI.ListBuilder](https://github.com/HarrisonOfTheNorth/HarryHotdog.UI.ListBuilder)
+The ListBuilder that this Blazor renderer has been created upon is at [Yatter.UI.ListBuilder](https://github.com/HarrisonOfTheNorth/Yatter.UI.ListBuilder)
 
 The API that integrates both of these Libraries, is at [Yatter API](https://github.com/HarrisonOfTheNorth/Yatter)
 
-This demo also uses our ResponsiveHttpClient at [https://github.com/HarrisonOfTheNorth/HarryHotdog.Http.ResponsiveHttpClient](https://github.com/HarrisonOfTheNorth/HarryHotdog.Http.ResponsiveHttpClient)
+This demo also uses our ResponsiveHttpClient at [https://github.com/HarrisonOfTheNorth/HarryHotdog.Http](https://github.com/HarrisonOfTheNorth/HarryHotdog.Http)
