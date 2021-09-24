@@ -1,0 +1,11 @@
+﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+
+<div style="visibility:@Item.Visibility;margin:@Item.Margin;padding:@Item.Padding;">
+    <input type="text" id="fname" name="fname" placeholder="@Item.Placeholder" style="width:100%">
+</div>
+
+@code {
+
+    [Parameter]
+    public ListBuilder.Entry Item { get; set; }
+}

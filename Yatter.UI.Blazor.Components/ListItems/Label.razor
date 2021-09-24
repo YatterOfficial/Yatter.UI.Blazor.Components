@@ -1,0 +1,18 @@
+﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+
+<div style="visibility:@Item.Visibility;color:@Item.TextColor;@WordWrapping;margin:@Item.Margin;padding:@Item.Padding;">@Item.Text</div>
+
+@code {
+
+    [Parameter]
+    public ListBuilder.Label Item { get; set; }
+
+    public string WordWrapping { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        WordWrapping = Item.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+
+        await base.OnInitializedAsync();
+    }
+}

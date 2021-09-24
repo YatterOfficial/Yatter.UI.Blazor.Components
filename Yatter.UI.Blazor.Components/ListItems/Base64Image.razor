@@ -1,0 +1,11 @@
+﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+
+<div style="visibility:@Item.Visibility;margin:@Item.Margin;padding:@Item.Padding;">
+    <img style="object-fit:contain;" src="data:image/@Item.ImageType;base64,@Item.Base64" alt="@Item.AltText" />
+</div>
+
+@code {
+
+    [Parameter]
+    public ListBuilder.Base64Image Item { get; set; }
+}

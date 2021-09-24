@@ -1,0 +1,58 @@
+﻿<style>
+    .center {
+            text-align: center;
+            background-color:@BackgroundColor;
+            margin:0px;
+            vertical-align:middle;
+        }
+    .text {
+        color:@TextColor;
+    }
+
+
+</style>
+
+<div class="center text">
+    <p>@Text</p>
+</div>
+
+@code {
+
+    [Parameter] public string Text { get; set; }
+
+    private string _textColor;
+    [Parameter]
+    public string TextColor
+    {
+        get
+        {
+            if(string.IsNullOrEmpty(_textColor))
+            {
+                _textColor = "Black";
+            }
+            return _textColor;
+        }
+        set
+        {
+            _textColor = value;
+        }
+    }
+
+    private string _backgroundColor;
+    [Parameter]
+    public string BackgroundColor
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_backgroundColor))
+            {
+                _backgroundColor = "White";
+            }
+            return _backgroundColor;
+        }
+        set
+        {
+            _backgroundColor = value;
+        }
+    }
+}

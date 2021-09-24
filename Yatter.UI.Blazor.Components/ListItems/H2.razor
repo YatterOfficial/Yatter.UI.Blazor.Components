@@ -1,0 +1,9 @@
+﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+
+<div style="visibility:@Item.Visibility;color:@Item.TextColor;margin:@Item.Margin;padding:@Item.Padding;"><h2>@Item.Text</h2></div>
+
+@code {
+
+    [Parameter]
+    public ListBuilder.H2 Item { get; set; }
+}

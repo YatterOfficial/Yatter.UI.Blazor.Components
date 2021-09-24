@@ -1,0 +1,81 @@
+﻿@using System.Collections.ObjectModel;
+@using Yatter.UI.ListBuilder.Framework;
+@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+@using Component = Yatter.UI.Blazor.Components.ListItems;
+@using Yatter.UI.Blazor.Components.ListItems;
+
+<style>
+    .harryhotdog_ui_blazor_components__listviewcontainer {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px 1fr 30px;
+        margin: 0px;
+        padding: 0px;
+        background-color: @BackgroundColor;
+    }
+
+    .harryhotdog_ui_blazor_components__listviewheader {
+        border-bottom: 1px solid lightgrey;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .harryhotdog_ui_blazor_components__listviewcontent {
+        overflow-y: scroll;
+        padding: 20px;
+        margin: 0px;
+    }
+
+    .harryhotdog_ui_blazor_components__listviewfooter {
+        border-top: 1px solid lightgrey;
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+<div class="harryhotdog_ui_blazor_components__listviewcontainer">
+    <div class="harryhotdog_ui_blazor_components__listviewheader">@Header</div>
+    <div class="harryhotdog_ui_blazor_components__listviewcontent" style="margin: 20px 0px 20px 0px; padding:0px; overflow-x:hidden;overflow-y:scroll">
+        @try
+            {
+                foreach (var item in ItemsSource)
+                {
+                    ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Parameters = new() { { "Item", item } };
+                    <DynamicComponent Type="@ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Type" Parameters="@ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Parameters" />
+                    ComponentMetadata[((ListBuilder.IListItemBase)item).DataType].Parameters = new() { { "Item", null } };
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+    </div>
+    <div class="harryhotdog_ui_blazor_components__listviewfooter">@Footer</div>
+</div>
+
+@code {
+
+    [Parameter] public ObservableCollection<Object> ItemsSource { get; set; }
+    [Parameter] public Dictionary<string, ComponentMetadata> ComponentMetadata { get; set; }
+    [Parameter] public RenderFragment Header { get; set; }
+    [Parameter] public RenderFragment Footer { get; set; }
+
+    private string _backgroundColor;
+    [Parameter]
+    public string BackgroundColor
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(_backgroundColor))
+            {
+                _backgroundColor = "White";
+            }
+            return _backgroundColor;
+        }
+        set
+        {
+            _backgroundColor = value;
+        }
+    }
+}
