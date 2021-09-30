@@ -1,0 +1,49 @@
+﻿@using System.Collections.ObjectModel;
+@using System.ComponentModel;
+@using Yatter.UI.ListBuilder.Framework;
+@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+@using Component = Yatter.UI.Blazor.Components.ListItems;
+@using Yatter.UI.Blazor.Components.ListItems;
+
+
+<DynamicComponent Type="@SingleComponentMetaData?.Type" Parameters="@SingleComponentMetaData?.Parameters" />
+
+@code {
+
+    public ComponentMetadata? SingleComponentMetaData { get; set; }
+
+    [Parameter] public Object? Item { get; set; }
+    [Parameter] public Dictionary<string, ComponentMetadata>? ComponentMetadata { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Initialize();
+    }
+
+    void Initialize()
+    {
+        if (Item != null)
+        {
+            var item = (ListBuilder.IDataType)Item;
+            var dataType = item.DataType;
+            if (ComponentMetadata != null)
+            {
+                SingleComponentMetaData = ComponentMetadata[dataType];
+                SingleComponentMetaData.Parameters = new() { { "Item", Item } };
+            }
+        }
+    }
+
+    async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+    {
+        Console.WriteLine("y@tter:");
+        Console.WriteLine($"    PropertyChanged in {this.GetType()}: {e.PropertyName}");
+
+        await InvokeAsync(() =>
+        {
+            Initialize();
+            StateHasChanged();
+        });
+    }
+}
+

@@ -68,6 +68,13 @@ namespace Yatter.UI.Blazor.Components.Framework
                     Type = typeof(Yatter.UI.Blazor.Components.ListItems.Base64Image)
                 });
 
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.TextPanel).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.TextPanel)
+                });
+
             return list;
         }
     }
