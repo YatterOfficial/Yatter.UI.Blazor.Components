@@ -22,19 +22,19 @@
 </style>
 <div class="root">
     <div class="menurow">
-        <p>User Menu Row</p>
+        @Masthead
     </div>
     <div class="menurow">
-        <p>Page Menu Row</p>
+        @Menu
     </div>
     <div class="listviewcontent">
         <DynamicListView ItemsSource="@Yatter?.Items" ComponentMetadata="@ComponentMetaData" BackgroundColor="#00B4D8">
-            <Header><Yatter.UI.Blazor.Components.Sub.TextHeaderOrFooter Text="@HeaderText" BackgroundColor="#023E8A" TextColor="White" /></Header>
-            <Footer><Yatter.UI.Blazor.Components.Sub.TextHeaderOrFooter Text="@FooterText" BackgroundColor="#023E8A" TextColor="White" /></Footer>
+            <Header>@ListHeader</Header>
+            <Footer>@ListFooter</Footer>
         </DynamicListView>
     </div>
     <div class="menurow">
-        <p>Tab Row</p>
+        @TabFoot
     </div>
 </div>
 
@@ -43,9 +43,11 @@
     [Parameter] public Yatter.UI.ListBuilder.Serialization.Models.Yatter? Yatter { get; set; }
     [Parameter] public Dictionary<string,Yatter.UI.ListBuilder.Framework.ComponentMetadata>? ComponentMetaData { get; set; }
 
-    [Parameter] public string? HeaderText { get; set; }
-    [Parameter] public string? FooterText { get; set; }
-
+    [Parameter] public RenderFragment? Masthead { get; set; }
+    [Parameter] public RenderFragment? Menu { get; set; }
+    [Parameter] public RenderFragment? ListHeader { get; set; }
+    [Parameter] public RenderFragment? ListFooter { get; set; }
+    [Parameter] public RenderFragment? TabFoot { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

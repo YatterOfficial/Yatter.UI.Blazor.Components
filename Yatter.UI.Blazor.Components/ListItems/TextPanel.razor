@@ -1,0 +1,24 @@
+﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+
+<style>
+    .center {
+        text-align: center;
+    }
+</style>
+
+<div class="center" style="visibility:@Item?.Visibility;color:@Item?.TextColor;@WordWrapping;margin:@Item?.Margin;padding:@Item?.Padding;background-color:@Item?.BackgroundColor">@Item?.Text</div>
+
+@code {
+
+    [Parameter]
+    public Yatter.UI.ListBuilder.ListItems.TextPanel? Item { get; set; }
+
+    public string? WordWrapping { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        WordWrapping = Item.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+
+        await base.OnInitializedAsync();
+    }
+}

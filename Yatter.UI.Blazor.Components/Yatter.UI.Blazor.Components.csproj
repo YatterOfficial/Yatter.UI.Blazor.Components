@@ -18,12 +18,10 @@
   <ItemGroup>
     <None Remove="Framework\" />
     <None Remove="ListItems\" />
-    <None Remove="Sub\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />
     <Folder Include="ListItems\" />
-    <Folder Include="Sub\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Yatter.UI.ListBuilder\Yatter.UI.ListBuilder\Yatter.UI.ListBuilder.csproj" />
