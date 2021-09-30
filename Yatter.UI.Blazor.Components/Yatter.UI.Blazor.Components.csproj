@@ -27,5 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Yatter.UI.ListBuilder\Yatter.UI.ListBuilder\Yatter.UI.ListBuilder.csproj" />
+    <ProjectReference Include="..\..\Yatter.UI.ListBuilder.Serialization\Yatter.UI.ListBuilder.Serialization\Yatter.UI.ListBuilder.Serialization.csproj" />
   </ItemGroup>
 </Project>

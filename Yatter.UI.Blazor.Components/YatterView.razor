@@ -1,0 +1,54 @@
+﻿@page "/"
+
+@using System.ComponentModel;
+@using Yatter.UI.ListBuilder.ListItems;
+@using Yatter.UI.Blazor.Components;
+
+<style>
+    .root {
+        display: grid;
+        grid-gap: 0px; /* Simply adjust this value !*/
+        background-color: purple;
+    }
+    .listviewcontent {
+        overflow-y: scroll;
+        padding: 0px;
+    }
+    .menurow {
+        background-color:yellow;
+        margin:0px;
+        padding:0px;
+    }
+</style>
+<div class="root">
+    <div class="menurow">
+        <p>User Menu Row</p>
+    </div>
+    <div class="menurow">
+        <p>Page Menu Row</p>
+    </div>
+    <div class="listviewcontent">
+        <DynamicListView ItemsSource="@Yatter?.Items" ComponentMetadata="@ComponentMetaData" BackgroundColor="#00B4D8">
+            <Header><Yatter.UI.Blazor.Components.Sub.TextHeaderOrFooter Text="@HeaderText" BackgroundColor="#023E8A" TextColor="White" /></Header>
+            <Footer><Yatter.UI.Blazor.Components.Sub.TextHeaderOrFooter Text="@FooterText" BackgroundColor="#023E8A" TextColor="White" /></Footer>
+        </DynamicListView>
+    </div>
+    <div class="menurow">
+        <p>Tab Row</p>
+    </div>
+</div>
+
+@code
+{
+    [Parameter] public Yatter.UI.ListBuilder.Serialization.Models.Yatter? Yatter { get; set; }
+    [Parameter] public Dictionary<string,Yatter.UI.ListBuilder.Framework.ComponentMetadata>? ComponentMetaData { get; set; }
+
+    [Parameter] public string? HeaderText { get; set; }
+    [Parameter] public string? FooterText { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+}
