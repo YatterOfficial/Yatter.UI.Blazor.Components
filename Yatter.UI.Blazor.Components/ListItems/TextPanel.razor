@@ -6,19 +6,24 @@
     }
 </style>
 
-<div class="center" style="visibility:@Item?.Visibility;color:@Item?.TextColor;@WordWrapping;margin:@Item?.Margin;padding:@Item?.Padding;background-color:@Item?.BackgroundColor">@Item?.Text</div>
+<div class="center" style="visibility:@CastItem?.Visibility;color:@CastItem?.TextColor;@WordWrapping;margin:@CastItem?.Margin;padding:@CastItem?.Padding;background-color:@CastItem?.BackgroundColor">@CastItem?.Text</div>
 
 @code {
 
     [Parameter]
-    public Yatter.UI.ListBuilder.ListItems.TextPanel? Item { get; set; }
+    public object? Item { get; set; }
+
+    public Yatter.UI.ListBuilder.ListItems.TextPanel? CastItem { get; set; }
 
     public string? WordWrapping { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        WordWrapping = Item.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
-
+        if (Item != null)
+        {
+            CastItem = (Yatter.UI.ListBuilder.ListItems.TextPanel)Item;
+            WordWrapping = CastItem.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+        }
         await base.OnInitializedAsync();
     }
-}
+    }

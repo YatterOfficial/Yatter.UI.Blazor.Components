@@ -5,7 +5,6 @@
 @using Component = Yatter.UI.Blazor.Components.ListItems;
 @using Yatter.UI.Blazor.Components.ListItems;
 
-
 <DynamicComponent Type="@SingleComponentMetaData?.Type" Parameters="@SingleComponentMetaData?.Parameters" />
 
 @code {
@@ -28,8 +27,7 @@
             var dataType = item.DataType;
             if (ComponentMetadata != null)
             {
-                SingleComponentMetaData = ComponentMetadata[dataType];
-                SingleComponentMetaData.Parameters = new() { { "Item", Item } };
+                SingleComponentMetaData = new ComponentMetadata { Name = ComponentMetadata[dataType].Name, Type= ComponentMetadata[dataType].Type, Parameters = new() { { "Item", Item } }};
             }
         }
     }
