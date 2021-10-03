@@ -21,6 +21,15 @@
         if (Item == null) Item = new Yatter.UI.ListBuilder.ListItems.Label();
         WordWrapping = CastItem.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
 
-        await base.OnInitializedAsync();
+        public string WordWrapping { get; set; }
+
+        protected override async Task OnInitializedAsync()
+        {
+            if (CastItem != null)
+            {
+                WordWrapping = CastItem.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+            }
+
+            await base.OnInitializedAsync();
+        }
     }
-}
