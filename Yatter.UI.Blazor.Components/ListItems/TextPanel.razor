@@ -10,8 +10,25 @@
 
 @code {
 
+
+    private object? _item;
     [Parameter]
-    public object? Item { get; set; }
+    public object? Item
+    {
+        get
+        {
+            return _item;
+        }
+        set
+        {
+            _item = value;
+
+            if (Item != null)
+            {
+                CastItem = (Yatter.UI.ListBuilder.ListItems.TextPanel)Item;
+            }
+        }
+    }
 
     public Yatter.UI.ListBuilder.ListItems.TextPanel? CastItem { get; set; }
 

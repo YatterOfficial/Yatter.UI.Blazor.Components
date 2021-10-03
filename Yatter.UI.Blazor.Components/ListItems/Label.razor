@@ -1,18 +1,39 @@
 ﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
 
-<div style="visibility:@Item.Visibility;color:@Item.TextColor;@WordWrapping;margin:@Item.Margin;padding:@Item.Padding;">@Item.Text</div>
+<div style="visibility:@CastItem.Visibility;color:@CastItem.TextColor;@WordWrapping;margin:@CastItem.Margin;padding:@CastItem.Padding;">@CastItem.Text</div>
 
 @code {
 
-    [Parameter]
-    public ListBuilder.Label Item { get; set; }
+        private object? _item;
+        [Parameter]
+        public object? Item
+        {
+            get
+            {
+                return _item;
+            }
+            set
+            {
+                _item = value;
 
-    public string WordWrapping { get; set; }
+                if (Item != null)
+                {
+                    CastItem = (Yatter.UI.ListBuilder.ListItems.Label)Item;
+                }
+            }
+        }
 
-    protected override async Task OnInitializedAsync()
-    {
-        WordWrapping = Item.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+        public Yatter.UI.ListBuilder.ListItems.Label? CastItem { get; set; }
 
-        await base.OnInitializedAsync();
+        public string WordWrapping { get; set; }
+
+        protected override async Task OnInitializedAsync()
+        {
+            if (CastItem != null)
+            {
+                WordWrapping = CastItem.LineBreakMode.Equals("normal") ? "white-space:normal;" : "white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+            }
+
+            await base.OnInitializedAsync();
+        }
     }
-}
