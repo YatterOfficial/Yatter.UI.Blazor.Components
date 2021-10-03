@@ -1,11 +1,18 @@
 ﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
 
-<div style="visibility:@Item.Visibility;margin:@Item.Margin;padding:@Item.Padding;">
-    <img style="object-fit:contain;" src="data:image/@Item.ImageType;base64,@Item.Base64" alt="@Item.AltText" />
+<div style="visibility:@CastItem?.Visibility;margin:@CastItem?.Margin;padding:@CastItem?.Padding;">
+    <img style="object-fit:contain;" src="data:image/@CastItem?.ImageType;base64,@CastItem?.Base64" alt="@CastItem?.AltText" />
 </div>
 
 @code {
 
+    private object _item;
     [Parameter]
-    public ListBuilder.Base64Image Item { get; set; }
+    public object? Item
+    {
+        get { return _item; }
+        set { _item = value; if (_item != null) { CastItem = (Yatter.UI.ListBuilder.ListItems.Base64Image)_item; } }
+    }
+
+    public Yatter.UI.ListBuilder.ListItems.Base64Image? CastItem { get; set; }
 }

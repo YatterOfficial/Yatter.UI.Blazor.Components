@@ -1,9 +1,16 @@
 ﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
 
-<div style="visibility:@Item.Visibility;color:@Item.TextColor;margin:@Item.Margin;padding:@Item.Padding;"><h2>@Item.Text</h2></div>
+<div style="visibility:@CastItem?.Visibility;color:@CastItem?.TextColor;margin:@CastItem?.Margin;padding:@CastItem?.Padding;"><h2>@CastItem?.Text</h2></div>
 
 @code {
 
+    private object _item;
     [Parameter]
-    public ListBuilder.H2 Item { get; set; }
+    public object? Item
+    {
+        get { return _item; }
+        set { _item = value; if (_item != null) { CastItem = (Yatter.UI.ListBuilder.ListItems.H2)_item; } }
+    }
+
+    public Yatter.UI.ListBuilder.ListItems.H2? CastItem { get; set; }
 }

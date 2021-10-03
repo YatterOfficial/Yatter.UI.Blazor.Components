@@ -1,11 +1,18 @@
 ﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
 
-<div style="visibility:@Item.Visibility;margin:@Item.Margin;padding:@Item.Padding;">
-    <input type="text" id="fname" name="fname" placeholder="@Item.Placeholder" style="width:100%">
+<div style="visibility:@CastItem?.Visibility;margin:@CastItem?.Margin;padding:@CastItem?.Padding;">
+    <input type="text" id="fname" name="fname" placeholder="@CastItem?.Placeholder" style="width:100%">
 </div>
 
 @code {
 
+    private object _item;
     [Parameter]
-    public ListBuilder.Entry Item { get; set; }
+    public object? Item
+    {
+        get { return _item; }
+        set { _item = value; if (_item != null) { CastItem = (Yatter.UI.ListBuilder.ListItems.Entry)_item; } }
+    }
+
+    public Yatter.UI.ListBuilder.ListItems.Entry? CastItem { get; set; }
 }
