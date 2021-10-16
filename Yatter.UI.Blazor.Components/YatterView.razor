@@ -8,14 +8,14 @@
     .root {
         display: grid;
         grid-gap: 0px; /* Simply adjust this value !*/
-        background-color: purple;
+        background-color: transparent;
     }
     .listviewcontent {
         overflow-y: scroll;
         padding: 0px;
     }
     .menurow {
-        background-color:yellow;
+        background-color:transparent;
         margin:0px;
         padding:0px;
     }
@@ -28,7 +28,7 @@
         @Menu
     </div>
     <div class="listviewcontent">
-        <DynamicListView ItemsSource="@Yatter?.Items" ComponentMetadata="@ComponentMetaData" BackgroundColor="#00B4D8">
+        <DynamicListView ItemsSource="@Yatter?.Items" ComponentMetadata="@ComponentMetaData" BackgroundColor="Transparent">
             <Header>@ListHeader</Header>
             <Footer>@ListFooter</Footer>
         </DynamicListView>

@@ -7,10 +7,18 @@ namespace Yatter.UI.Blazor.Components.Framework
 {
     public class ComponentMetadataInfo
     {
+        private static List<Data.ComponentMetadata> CustomComponents = new List<Data.ComponentMetadata>();
+
+        public static void Add(Data.ComponentMetadata component)
+        {
+            CustomComponents.Add(component);
+        }
 
         public List<Data.ComponentMetadata> GetLibraryComponentsMetadata()
         {
             var list = new List<Data.ComponentMetadata>();
+
+            list.AddRange(CustomComponents);
 
             list.Add(
                 new Data.ComponentMetadata
@@ -45,6 +53,13 @@ namespace Yatter.UI.Blazor.Components.Framework
                 {
                     Name = typeof(Yatter.UI.ListBuilder.ListItems.H5).ToString(),
                     Type = typeof(Yatter.UI.Blazor.Components.ListItems.H5)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.IconTitle).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.IconTitle)
                 });
 
             list.Add(

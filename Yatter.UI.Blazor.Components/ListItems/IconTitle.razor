@@ -1,0 +1,64 @@
+﻿@using ListBuilder = Yatter.UI.ListBuilder.ListItems;
+
+@if (CastItem != null)
+    {
+        if (CastItem.HeadingType.Equals("h1"))
+        {
+            <table style="visibility:@CastItem?.Visibility;color:@CastItem.TextColor;margin:@CastItem.Margin;padding:@CastItem.Padding;">
+                <tr>
+                    <td><img style="object-fit:contain;" src="data:image/@CastItem?.ImageType;base64,@CastItem?.IconBase64" /></td>
+                    <td style="vertical-align:@CastItem.?TextVerticalAlign;color:@CastItem?.TextColor;padding-left:@CastItem?.MarginLeft;padding-right:@CastItem?.MarginRight;padding-top:@CastItem?.MarginTop;padding-bottom:@CastItem?.MarginBottom;"><h1>@CastItem?.Text</h1></td>
+                </tr>
+            </table>
+        }
+        else if (CastItem.HeadingType.Equals("h2"))
+        {
+            <table style="visibility:@CastItem?.Visibility;color:@CastItem.TextColor;margin:@CastItem.Margin;padding:@CastItem.Padding;">
+                <tr>
+                    <td><img style="object-fit:contain;" src="data:image/@CastItem?.ImageType;base64,@CastItem?.IconBase64" /></td>
+                    <td style="vertical-align:@CastItem.?TextVerticalAlign;color:@CastItem?.TextColor;padding-left:@CastItem?.MarginLeft;padding-right:@CastItem?.MarginRight;padding-top:@CastItem?.MarginTop;padding-bottom:@CastItem?.MarginBottom;"><h2>@CastItem?.Text</h2></td>
+                </tr>
+            </table>
+        }
+        else if (CastItem.HeadingType.Equals("h3"))
+        {
+            <table style="visibility:@CastItem?.Visibility;color:@CastItem.TextColor;margin:@CastItem.Margin;padding:@CastItem.Padding;">
+                <tr>
+                    <td><img style="object-fit:contain;" src="data:image/@CastItem?.ImageType;base64,@CastItem?.IconBase64" /></td>
+                    <td style="vertical-align:@CastItem.?TextVerticalAlign;color:@CastItem?.TextColor;padding-left:@CastItem?.MarginLeft;padding-right:@CastItem?.MarginRight;padding-top:@CastItem?.MarginTop;padding-bottom:@CastItem?.MarginBottom;"><h3>@CastItem?.Text</h3></td>
+                </tr>
+            </table>
+        }
+        else if (CastItem.HeadingType.Equals("h4"))
+        {
+            <table style="visibility:@CastItem?.Visibility;color:@CastItem.TextColor;margin:@CastItem.Margin;padding:@CastItem.Padding;">
+                <tr>
+                    <td><img style="object-fit:contain;" src="data:image/@CastItem?.ImageType;base64,@CastItem?.IconBase64" /></td>
+                    <td style="vertical-align:@CastItem.?TextVerticalAlign;color:@CastItem?.TextColor;padding-left:@CastItem?.MarginLeft;padding-right:@CastItem?.MarginRight;padding-top:@CastItem?.MarginTop;padding-bottom:@CastItem?.MarginBottom;"><h4>@CastItem?.Text</h4></td>
+                </tr>
+            </table>
+        }
+        else if (CastItem.HeadingType.Equals("h5"))
+        {
+            <table style="visibility:@CastItem?.Visibility;color:@CastItem.TextColor;margin:@CastItem.Margin;padding:@CastItem.Padding;">
+                <tr>
+                    <td><img style="object-fit:contain;" src="data:image/@CastItem?.ImageType;base64,@CastItem?.IconBase64" /></td>
+                    <td style="vertical-align:@CastItem.?TextVerticalAlign;color:@CastItem?.TextColor;padding-left:@CastItem?.MarginLeft;padding-right:@CastItem?.MarginRight;padding-top:@CastItem?.MarginTop;padding-bottom:@CastItem?.MarginBottom;"><h5>@CastItem?.Text</h5></td>
+                </tr>
+            </table>
+        }
+    }
+
+
+@code {
+
+    private object _item;
+    [Parameter]
+    public object? Item
+    {
+        get { return _item; }
+        set { _item = value; if (_item != null) { CastItem = (Yatter.UI.ListBuilder.ListItems.IconTitle)_item; } }
+    }
+
+    public Yatter.UI.ListBuilder.ListItems.IconTitle? CastItem { get; set; }
+}
