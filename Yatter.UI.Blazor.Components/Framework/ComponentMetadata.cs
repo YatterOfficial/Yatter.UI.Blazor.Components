@@ -90,6 +90,20 @@ namespace Yatter.UI.Blazor.Components.Framework
                     Type = typeof(Yatter.UI.Blazor.Components.ListItems.TextPanel)
                 });
 
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.WebPage).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.WebPage)
+                });
+
+            list.Add(
+                new Data.ComponentMetadata
+                {
+                    Name = typeof(Yatter.UI.ListBuilder.ListItems.YouTubeVideo).ToString(),
+                    Type = typeof(Yatter.UI.Blazor.Components.ListItems.YouTubeVideo)
+                });
+
             return list;
         }
     }

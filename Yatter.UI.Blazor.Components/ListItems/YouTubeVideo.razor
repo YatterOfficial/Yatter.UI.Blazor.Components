@@ -1,0 +1,37 @@
+﻿@if (!string.IsNullOrEmpty(CastItem?.VideoWatchUrl))
+{
+    try
+    {
+        <table class="youtubevideo" style="width:100%;height:calc(75vw);background-color:transparent;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td></td>
+                <td style="justify-content:center;"><iframe class="youtubevideo" src="https://www.youtube.com/embed/@CastItem?.VideoWatchUrl" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                <td></td>
+            </tr>
+        </table>
+
+    }
+    catch (Exception ex)
+    {
+
+    }
+}
+
+
+
+
+@code {
+
+    public string VideoId { get; set; }
+
+    private object _item;
+    [Parameter]
+    public object? Item
+    {
+        get { return _item; }
+        set { _item = value; if (_item != null) { CastItem = (Yatter.UI.ListBuilder.ListItems.YouTubeVideo)_item; } }
+    }
+
+    public Yatter.UI.ListBuilder.ListItems.YouTubeVideo? CastItem { get; set; }
+}
+

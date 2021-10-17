@@ -1,0 +1,21 @@
+﻿
+@if (!string.IsNullOrEmpty(CastItem?.Url))
+{
+    <iframe style="width:100%; height:300px;" src="CastItem?.Url" frameborder="0" />
+}
+
+@code {
+
+    public string VideoId { get; set; }
+
+    private object _item;
+    [Parameter]
+    public object? Item
+    {
+        get { return _item; }
+        set { _item = value; if (_item != null) { CastItem = (Yatter.UI.ListBuilder.ListItems.WebPage)_item; } }
+    }
+
+    public Yatter.UI.ListBuilder.ListItems.WebPage? CastItem { get; set; }
+}
+
