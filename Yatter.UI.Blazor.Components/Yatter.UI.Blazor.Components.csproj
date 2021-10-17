@@ -4,6 +4,24 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageVersion>0.0.4</PackageVersion>
+    <Authors>Anthony Harrison</Authors>
+    <Copyright>Anthony Harrison</Copyright>
+    <PackageIconUrl>https://avatars.githubusercontent.com/u/92665945</PackageIconUrl>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Owners>Anthony Harrison</Owners>
+    <PackageProjectUrl>https://github.com/YatterOfficial/Yatter.UI.Blazor.Components</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>Alpha Release, to be used in conjunction with Yatter.UI.ListBuilder</PackageReleaseNotes>
+    <Summary>Yatter Blazor Component items, available in conjunction with ListBuilder DTO ListItems at Yatter.UI.ListBuilder 0.0.4 and above</Summary>
+    <PackageTags>Yatter</PackageTags>
+    <Title>Yatter.UI.Blazor.Components</Title>
+    <Description>Yatter Blazor Component items, available in conjunction with ListBuilder DTO ListItems at Yatter.UI.ListBuilder 0.0.4 and above. For platforms other than Blazor, for XAML, see Yatter.UI.Xaml.Components, and for a Net Interactive Notebook, see Yatter.UI.NetInteractiveNotebook.Components</Description>
+    <PackageId>Yatter.UI.Blazor.Components</PackageId>
+    <PackOnBuild>true</PackOnBuild>
+
   </PropertyGroup>
 
 
@@ -15,6 +33,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0-rc.1.21452.15" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
