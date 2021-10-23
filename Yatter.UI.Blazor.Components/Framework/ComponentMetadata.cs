@@ -11,7 +11,11 @@ namespace Yatter.UI.Blazor.Components.Framework
 
         public static void Add(Data.ComponentMetadata component)
         {
-            CustomComponents.Add(component);
+            var existingComponent = CustomComponents.Where(existing => existing.Name.Equals(component.Name)).FirstOrDefault();
+            if (existingComponent==null)
+            {
+                CustomComponents.Add(component);
+            }
         }
 
         public List<Data.ComponentMetadata> GetLibraryComponentsMetadata()
