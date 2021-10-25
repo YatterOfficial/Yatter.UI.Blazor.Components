@@ -8,6 +8,8 @@ We are progressively building this solution from a custom ListView pattern that 
 
 ![GitHub](https://img.shields.io/github/license/yatterofficial/Yatter.UI.Blazor.Components?style=for-the-badge)
 
+[![Yatter.UI.Blazor.Components on fuget.org](https://www.fuget.org/packages/Yatter.UI.Blazor.Components/badge.svg)](https://www.fuget.org/packages/Yatter.UI.Blazor.Components)
+
 This library has been created to render a collection of lightweight List ```Description``` objects from JSON or XML list descriptions, which when used in conjunction with the ListBuilder that generates or consumes such JSON or XML, will allow rapid list creation without needing to know much about the underlying HTML or CSS technologies that Blazor builds upon.
 
 To date, this Blazor renderer allows lightweight lists to be generated on the following devices:
