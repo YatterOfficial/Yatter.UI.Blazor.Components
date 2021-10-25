@@ -25,3 +25,5 @@ The ListBuilder that this Blazor renderer has been created upon is at [Yatter.UI
 The API that integrates both of these Libraries, is at [Yatter API](https://github.com/HarrisonOfTheNorth/Yatter)
 
 This demo also uses our ResponsiveHttpClient at [https://github.com/YatterOfficial/Yatter.Http](https://github.com/YatterOfficial/Yatter.Http)
+
+y@R and You-At-A-Resource are trademarks of Count Anthony Harrison, operating from the United Kingdom
